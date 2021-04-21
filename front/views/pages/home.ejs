@@ -1,0 +1,41 @@
+<%- include('../partials/head') %> <%- include('../partials/navigation') %>
+
+
+<h1>Home</h1>
+
+<h2>Appartements</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>titre</th>
+            <th>description</th>
+            <th>adresse</th>
+            <th>codePostal</th>
+            <th>ville</th>
+            <th>prix</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% annonces.forEach((annonce) => { %>
+        <tr>
+            <td><%= annonce._id %></td>
+            <td><%= annonce.titre %></td>
+            <td><%= annonce.description %></td>
+            <td><%= annonce.adresse%></td>
+            <td><%= annonce.codePostal %></td>
+            <td><%= annonce.ville %></td>
+            <td><%= annonce.prix %></td>
+            <td><a href="/annonce/<%= annonce._id %>">Voir le detail</a></td>
+            <td><a href="/update/annonce/<%= annonce._id %>">Mettre à jour</a></td>
+            <td>
+                <button type="button" onclick="deleteAnnonce('<%= annonce._id %>')">
+                Supprimer
+                </button>
+            </td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
